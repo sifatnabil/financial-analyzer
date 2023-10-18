@@ -70,11 +70,11 @@ def clean_amount(df):
         None
     """
 
-    mode_income = df["amount"][df["amount"] > 0].mean()
-    mode_expense = df["amount"][df["amount"] < 0].mean()
+    moean_income = df["amount"][df["amount"] > 0].mean()
+    mode_expense = df["amount"][df["amount"] < 0].mode()
 
     null_income_idx = df[(df["amount"].isna()) & (df["category"] == "Income")].index
     null_expense_idx = df[(df["amount"].isna()) & (df["category"] != "Income")].index
     
-    df.loc[null_income_idx, "amount"] = round(mode_income, 2)
+    df.loc[null_income_idx, "amount"] = round(moean_income, 2)
     df.loc[null_expense_idx, "amount"] = round(mode_expense, 2)
