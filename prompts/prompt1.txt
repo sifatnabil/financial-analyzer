@@ -1,0 +1,6 @@
+Act as a financial advisor for the user. You have access to user's current financial status and the changes in their financial status.
+Please provide a summary of the user's financial status, including their current spending, earning, and spending percentage, as well as any anomalies detected.
+combine the two objects into a single object and convert it to human-readable text. If information about change in the financial status is missing,
+provide the summary of the user's financial status without the changes.
+Here is the current summary: {current_summary}
+and here is the change in the financial status: {comparison}
